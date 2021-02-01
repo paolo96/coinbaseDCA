@@ -50,15 +50,19 @@ class CoinbaseHelper {
 
     buy(authedClient, amount) {
 
-        const buyParams = {
-            funds: amount,
-            side: 'buy',
-            type: 'market',
-            product_id: Settings.init().crypto+'-'+Settings.init().fiat,
-        };
-        authedClient.placeOrder(buyParams).then(r => {
-            console.log(r);
-        });
+        if(amount > 0) {
+            const buyParams = {
+                funds: amount,
+                side: 'buy',
+                type: 'market',
+                product_id: Settings.init().crypto+'-'+Settings.init().fiat,
+            };
+            authedClient.placeOrder(buyParams).then(r => {
+                console.log(r);
+            });
+        } else {
+            console.log("Not enough funds");
+        }
 
     }
 }
