@@ -4,6 +4,7 @@ class BuyStrategy {
     constructor() {
 
         this.K = 60;
+        this.coinbaseMinOrder = 10;
 
     }
 
@@ -16,12 +17,15 @@ class BuyStrategy {
     }
 
     getDailyAmount(balance) {
-
+        
+        if(balance <= this.coinbaseMinOrder) {
+            return 0;
+        }
+        
         var amount = balance/this.K;
 
-        //Coinbase min order = 10 EUR
-        if(amount <= 10) {
-            amount = 10.01;
+        if(amount <= this.coinbaseMinOrder) {
+            amount = this.coinbaseMinOrder+0.01;
         }
 
         return amount;
