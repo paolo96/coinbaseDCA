@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WTIME=$(( ( RANDOM % 86399 )  + 1 ))
+WTIME=$(( ((RANDOM % 37767) + (RANDOM % 37767) + (RANDOM % 10866))  + 1 ))
 
 /bin/echo $WTIME
 /bin/sleep $WTIME
