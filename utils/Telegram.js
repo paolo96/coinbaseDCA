@@ -27,7 +27,7 @@ class Telegram {
         payload += "Spent: " + funds.toFixed(2) + " &#x20AC;\n";
         payload += "Bought: " + btcBought + " &#x20bf;\n\n";
 		if(bought > 0) {
-			payload += "BTC price paid: " + (bought*funds).toFixed(2) + " &#x20AC;\n";
+			payload += "BTC price paid: " + (funds/bought).toFixed(2) + " &#x20AC;\n";
 		}
 
         params.text = payload;
