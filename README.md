@@ -10,7 +10,7 @@
 
 # Setup for Telegram notification
 
-- [Create a new bot with Botfather](https://t.me/botfather)
+- [Create a new bot with Botfather](https://t.me/botfather):
   * In the chat with Botfather, type `/newbot`
   * Follow the instructions choosing name and username of your bot
   * At the end of the process, Botfather will send you your bot token
