@@ -27,8 +27,6 @@ class BuyStrategy {
         if(amount <= this.coinbaseMinOrder) {
             amount = this.coinbaseMinOrder+0.01;
         }
-        
-        amount = amount.toFixed(2);
 
         return amount;
     }

@@ -52,7 +52,7 @@ class CoinbaseHelper {
 
         if(amount > 0) {
             const buyParams = {
-                funds: amount,
+                funds: amount.toFixed(2),
                 side: 'buy',
                 type: 'market',
                 product_id: Settings.init().crypto+'-'+Settings.init().fiat,
