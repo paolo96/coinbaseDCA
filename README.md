@@ -8,7 +8,7 @@
 - (opt) Choose your buy strategy changing the function getDailyAmount in utils/BuyStrategy.js
 
 
-#Setup for Telegram notification
+# Setup for Telegram notification
 
 - (https://core.telegram.org/bots/api)[Create a new bot with Botfather]
 - To retrieve your telegram_id, send a message to the bot, then go to https://api.telegram.org/bot(your_bot_token)/getUpdates . You will find your telegram_id under message->from->id
