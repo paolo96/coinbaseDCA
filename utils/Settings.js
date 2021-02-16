@@ -1,7 +1,6 @@
 
 class Settings {
 
-
     constructor() {
 
         this.fiat = 'EUR';

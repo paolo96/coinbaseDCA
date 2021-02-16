@@ -59,9 +59,19 @@ class CoinbaseHelper {
             };
             authedClient.placeOrder(buyParams).then(r => {
                 console.log(r);
-		if(Settings.init().isTelegramNotificationOn) {
-		    Telegram.init().telegramPost(r);
-		}
+                if(Settings.init().isTelegramNotificationOn) {
+                    if(r.id) {
+                        authedClient.getOrder(r.id, function (resultOrder) {
+                            if(resultOrder.filled_size) {
+                                Telegram.init().telegramPost(amount, resultOrder.filled_size);
+                            } else {
+                                Telegram.init().telegramPost(amount);
+                            }
+                        })
+                    } else {
+                        Telegram.init().telegramPost(amount);
+                    }
+                }
             });
         } else {
             console.log("Not enough funds");
