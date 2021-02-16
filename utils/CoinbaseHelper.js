@@ -1,4 +1,4 @@
-
+const Telegram = require("./Telegram.js");
 const Settings = require("./Settings.js");
 
 class CoinbaseHelper {
@@ -59,6 +59,9 @@ class CoinbaseHelper {
             };
             authedClient.placeOrder(buyParams).then(r => {
                 console.log(r);
+		if(Settings.init().isTelegramNotificationOn) {
+		    Telegram.init().telegramPost(r);
+		}
             });
         } else {
             console.log("Not enough funds");

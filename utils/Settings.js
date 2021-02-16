@@ -12,6 +12,8 @@ class Settings {
 
         this.apiURI = 'https://api.pro.coinbase.com';
         //SANDBOX -> this.apiURI = 'https://api-public.sandbox.pro.coinbase.com';
+        
+        this.isTelegramNotificationOn = false;
 
     }
 
