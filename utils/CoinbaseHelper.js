@@ -61,13 +61,13 @@ class CoinbaseHelper {
                 console.log(r);
                 if(Settings.init().isTelegramNotificationOn) {
                     if(r.id) {
-                        authedClient.getOrder(r.id, function (resultOrder) {
+                        authedClient.getOrder(r.id).then(resultOrder => {
                             if(resultOrder.filled_size) {
-                                Telegram.init().telegramPost(amount, resultOrder.filled_size);
+                                Telegram.init().telegramPost(amount, parseFloat(resultOrder.filled_size));
                             } else {
                                 Telegram.init().telegramPost(amount);
                             }
-                        })
+                        });
                     } else {
                         Telegram.init().telegramPost(amount);
                     }
