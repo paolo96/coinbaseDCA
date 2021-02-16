@@ -5,7 +5,7 @@ class Telegram {
     constructor() {
 
         this.bot_token = "your_bot_token";
-        this.telegram_id = "00000000";
+        this.telegram_id = "your_telegram_id";
         this.bot_api = "https://api.telegram.org/bot";
         this.bot_method = "sendMessage";
         this.endPoint = this.bot_api+this.bot_token+"/"+this.bot_method;
