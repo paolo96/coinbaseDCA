@@ -61,13 +61,17 @@ class CoinbaseHelper {
                 console.log(r);
                 if(Settings.init().isTelegramNotificationOn) {
                     if(r.id) {
-                        authedClient.getOrder(r.id).then(resultOrder => {
-                            if(resultOrder.filled_size) {
-                                Telegram.init().telegramPost(amount, parseFloat(resultOrder.filled_size));
-                            } else {
-                                Telegram.init().telegramPost(amount);
-                            }
-                        });
+                        setTimeout(function () {
+
+                            authedClient.getOrder(r.id).then(resultOrder => {
+                                if(resultOrder.filled_size) {
+                                    Telegram.init().telegramPost(amount, parseFloat(resultOrder.filled_size));
+                                } else {
+                                    Telegram.init().telegramPost(amount);
+                                }
+                            });
+
+                        }, 1000);
                     } else {
                         Telegram.init().telegramPost(amount);
                     }
