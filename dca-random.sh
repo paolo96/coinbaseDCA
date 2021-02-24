@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WTIME=$(( ((RANDOM % 37767) + (RANDOM % 37767) + (RANDOM % 10866))  + 1 ))
+WTIME=$(/bin/node /path/to/random-day.js)
 
 /bin/echo $WTIME
 /bin/sleep $WTIME
