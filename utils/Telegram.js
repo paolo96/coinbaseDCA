@@ -20,7 +20,7 @@ class Telegram {
         params.parse_mode = this.parse_mode;
 
         let payload = "&#x1f3e6; <b>Daily savings</b>\n\n";
-        payload += "Limit at: " + limitPrice.toFixed(2) + " &#x20AC;\n";
+        payload += "Limit at: " + limitPrice + " &#x20AC;\n";
         payload += "Value BTC: " + baseSize + " &#x20bf;\n\n";
         payload += "Value EUR: " + amount + " &#x20bf;\n\n";
 

@@ -97,7 +97,7 @@ class CoinbaseHelper {
                     .then((data) => {
                         if(data.data && data.data.success) {
                             if(Settings.init().isTelegramNotificationOn) {
-                                Telegram.init().telegramPost(amount, baseSize, limitPrice);
+                                Telegram.init().telegramPost(amount.toFixed(2), baseSize, limitPrice);
                             }
                         } else {
                             console.log("Error: ", data.data);
