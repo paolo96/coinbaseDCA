@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+
 
 class Telegram {
 
@@ -13,31 +13,25 @@ class Telegram {
 
     }
 
-    generateParams(funds, bought = 0) {
+    generateParams(amount, baseSize, limitPrice) {
 
         let params = {};
         params.chat_id = this.telegram_id;
         params.parse_mode = this.parse_mode;
 
-        var btcBought = bought.toFixed(8);
-        if(bought <= 0) {
-        	btcBought = "unavailable";
-		}
         let payload = "&#x1f3e6; <b>Daily savings</b>\n\n";
-        payload += "Spent: " + funds.toFixed(2) + " &#x20AC;\n";
-        payload += "Bought: " + btcBought + " &#x20bf;\n\n";
-		if(bought > 0) {
-			payload += "BTC price paid: " + (funds/bought).toFixed(2) + " &#x20AC;\n";
-		}
+        payload += "Limit at: " + limitPrice.toFixed(2) + " &#x20AC;\n";
+        payload += "Value BTC: " + baseSize + " &#x20bf;\n\n";
+        payload += "Value EUR: " + amount + " &#x20bf;\n\n";
 
         params.text = payload;
         return JSON.stringify(params);
 
     }
 
-    telegramPost(funds, bought = 0) {
+    telegramPost(amount, baseSize, limitPrice) {
 
-        const formBody = this.generateParams(funds, bought);
+        const formBody = this.generateParams(amount, baseSize, limitPrice);
         fetch(this.endPoint, {
             method: 'POST',
             body: formBody,
