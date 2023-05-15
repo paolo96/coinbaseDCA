@@ -22,8 +22,8 @@ class Telegram {
 
         let payload = "&#x1f3e6; <b>Daily savings</b>\n\n";
         payload += "Limit at: " + limitPrice + " &#x20AC;\n";
-        payload += "Value BTC: " + baseSize + " &#x20bf;\n\n";
-        payload += "Value EUR: " + amount + " &#x20bf;\n\n";
+        payload += "Value BTC: " + baseSize + " &#x20bf;\n";
+        payload += "Value EUR: " + amount + " &#x20AC;\n\n";
 
         params.text = payload;
         return JSON.stringify(params);
