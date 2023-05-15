@@ -32,13 +32,13 @@ class Telegram {
     telegramPost(amount, baseSize, limitPrice) {
 
         const formBody = this.generateParams(amount, baseSize, limitPrice);
-        fetch(this.endPoint, {
-            method: 'POST',
-            body: formBody,
-            headers: {"Content-type": "application/json;charset=UTF-8"}
+        axios.post(this.endPoint, formBody, {
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+            }
         })
             .then((resp) => {
-                return resp.json();
+                return resp.data;
             })
             .then((resp) => {
                 if (resp.ok === true) {
@@ -46,7 +46,11 @@ class Telegram {
                 } else {
                     console.log("Telegram message FAILED!");
                 }
+            })
+            .catch((error) => {
+                console.error(error);
             });
+
 
     }
 
